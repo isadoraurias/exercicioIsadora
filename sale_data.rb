@@ -1,41 +1,38 @@
 class SaleData
+
   attr_accessor :transaction_id,
+  :external_id,
+  :branch_id,
   :affiliation_code,
-  :summary_number,
-  :card_number,
+  :order_id,
+  :authorization_code,
   :sale_date,
-  :transaction_gross_amount,
-  :transaction_tax_amount,
-  :transaction_net_amount,
-  :tax,
+  :capture_date,
+  :transaction_amount,
+  :installment_count,
+  :customer_name,
+  :customer_document,
+  :card_number,
   :tid,
   :nsu,
-  :order_id,
-  :terminal_logic_number,
-  :capture_date,
-  :summary_identifier_number,
-  :installment_count,
-  :authorization_code
-end
+  :payment_method_name
 
-  def initialize(transaction_id:, affiliation_code:, summary_number:, card_number:, sale_date:, transaction_gross_amount:, transaction_tax_amount:, transaction_net_amount:, tax:, tid:, nsu:, order_id:, terminal_logic_number:, capture_date:, ummary_identifier_number:, installment_count:, authorization_code:)
-
+  def initialize(transaction_id:, external_id:, branch_id:, affiliation_code:, order_id:, authorization_code:, sale_date:, capture_date:, transaction_amount:, installment_count:, customer_name:, customer_document:, card_number:, tid:, nsu:, payment_method_name:)
     @transaction_id = transaction_id
+    @external_id = external_id
+    @branch_id = branch_id
     @affiliation_code = affiliation_code
-    @summary_number = summary_number
-    @card_number = card_number
+    @order_id = order_id
+    @authorization_code = authorization_code
     @sale_date = sale_date
-    @transaction_gross_amount = transaction_gross_amount
-    @transaction_tax_amount = transaction_tax_amount
-    @transaction_net_amount = transaction_net_amount
-    @tax = tax
+    @capture_date = capture_date
+    @transaction_amount = transaction_amount
+    @installment_count = installment_count
+    @customer_name = customer_name
+    @customer_document = customer_document
+    @card_number = card_number
     @tid = tid
     @nsu = nsu
-    @order_id = order_id
-    @terminal_logic_number = terminal_logic_number
-    @capture_date = capture_date
-    @summary_identifier_number = summary_identifier_number
-    @installment_count = installment_count
-    @authorization_code = authorization_code
-
+    @payment_method_name = payment_method_name
   end
+end
