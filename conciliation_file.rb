@@ -14,6 +14,11 @@ class ConciliationFile
     @processing_type = processing_type
     @version = version
     @conciliated_transactions =[]
-  end
 
+    def find_transaction(value)
+      conciliated_transactions.find do |conciliated_transaction|
+        conciliated_transaction.sale_data.transaction_id == value
+    end
+  end
+end
 end
