@@ -35,4 +35,13 @@ class SaleData
     @nsu = nsu
     @payment_method_name = payment_method_name
   end
+
+  def values
+    [transaction_id, external_id, branch_id, affiliation_code, order_id, authorization_code, sale_date, capture_date, transaction_amount, installment_count, customer_name, customer_document, card_number, tid, nsu, payment_method_name]
+  end
+  def valid?
+    values.all? do |value|
+      value != nil
+    end
+  end
 end

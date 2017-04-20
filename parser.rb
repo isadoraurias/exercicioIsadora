@@ -22,6 +22,7 @@ class Parser
         when "6" then initialize_informational_event(values, conciliated_transaction)
       end
     end
+
     conciliation_file
   end
   def self.initialize_conciliation_file(values)
@@ -34,6 +35,9 @@ class Parser
   end
   def self.initialize_sale_data(values, conciliated_transaction)
     sale_data = SaleData.new(transaction_id: values[1], external_id: values[2], branch_id: values[3], affiliation_code: values[4], order_id: values[5], authorization_code: values[6], sale_date: values[7], capture_date: values[8], transaction_amount: values[9], installment_count: values[10], customer_name: values[11], customer_document: values[12], card_number: values[13], tid: values[14], nsu: values[15], payment_method_name: values[16])
+    if !sale_data.valid?
+      raise RuntimeError.new(values)
+    end
     conciliated_transaction.sale_data = sale_data
   end
   def self.initialize_acquirer_data(values, conciliated_transaction)
